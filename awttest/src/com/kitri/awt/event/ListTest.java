@@ -15,7 +15,7 @@ public class ListTest extends Frame implements ActionListener{
 	TextField tfL = new TextField();
 	
 	List listR = new List(10,true);
-	List listL = new List();
+	List listL = new List(10, true);
 	
 	Button btr = new Button("▷");
 	Button btrA = new Button("▶");
@@ -82,13 +82,21 @@ public class ListTest extends Frame implements ActionListener{
 			listR.add(tmp);
 		}else if(ob == btr) {
 //			1.listl에서 선택한문자열 get.
-			String tmp = listL.getSelectedItem();
+//			2.1의 값을 listr에 추가.
+//			3.1의 값을 listl에서 제거.
+			String tmp[] = listL.getSelectedItems();
+			int len = tmp.length;
+			for (int i = 0; i < len; i++) {
+				listR.add(tmp[i]);
+				
+			}
+			
+			for(int i = len-1; i >= 0; i--) {
+				listL.remove(tmp[i]);
+				
+			}
 			if(tmp==null)
 				return;
-//			2.1의 값을 listr에 추가.
-			listR.add(tmp);
-//			3.1의 값을 listl에서 제거.
-			listL.remove(tmp);
 		}else if(ob == btrA) {
 //			1.listl의 값을 모두 get
 			String tmp[] = listL.getItems();
@@ -104,11 +112,19 @@ public class ListTest extends Frame implements ActionListener{
 //				listL.remove(i);
 //			}
 		}else if(ob == btl) {
-			String tmp = listR.getSelectedItem();
-			if(tmp==null)
+			String tmp[] = listR.getSelectedItems();
+			
+			int len = tmp.length;
+			for (int i = 0; i < len; i++) {
+				listL.add(tmp[i]);
+			
+			}
+			len = tmp.length;
+			for(int i = len-1; i >= 0 ; i--) {
+				listR.remove(tmp[i]);
+			}
+			if(tmp==null) 
 				return;
-			listL.add(tmp);
-			listR.remove(tmp);
 		}else if(ob == btlA) {
 			String tmp[] = listR.getItems();
 			int len = tmp.length;
