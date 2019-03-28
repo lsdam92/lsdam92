@@ -26,7 +26,7 @@ public class Calculator extends Frame {
 		pN.add(tf, "Center");
 		pN.add(bN, "East");
 
-		pC.setLayout(new GridLayout(4, 4, 20, 20));
+		pC.setLayout(new GridLayout(4, 4, 10, 10));
 		int len = bC.length;
 		int c = 20;
 		for (int i = 0; i < len; i++) {
@@ -49,7 +49,7 @@ public class Calculator extends Frame {
 		add(pS, "South");
 		setBackground(new Color(150, 20, 20));
 
-		setBounds(300, 200, 300, 350);
+		setBounds(300, 200, 300, 400);
 		setVisible(true);
 
 	}
