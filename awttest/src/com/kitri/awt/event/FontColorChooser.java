@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 
-public class ColorSelector extends Frame implements AdjustmentListener{
+public class FontColorChooser extends Frame {
 	
 	Panel colorP = new Panel();
 	Panel colorS = new Panel();
@@ -14,10 +14,10 @@ public class ColorSelector extends Frame implements AdjustmentListener{
 	Panel C = new Panel();
 		
 	
-	Label tf = new Label();
+	TextField tf = new TextField();
 	Panel tC = new Panel();
 	
-	Button ok = new Button("선택");
+	Button ok = new Button("확인");
 	
 	Label R1 = new Label("빨강", Label.CENTER);	
 	Label G1 = new Label("초록", Label.CENTER);	
@@ -27,8 +27,8 @@ public class ColorSelector extends Frame implements AdjustmentListener{
 	Scrollbar Rr2 = new Scrollbar(Scrollbar.HORIZONTAL, 127, 10, 0, 265);
 	Scrollbar Rr3 = new Scrollbar(Scrollbar.HORIZONTAL, 127, 10, 0, 265);
 	
-	public ColorSelector() {
-		super("ColorSelector Test !!!");
+	public FontColorChooser() {
+		super("FontColorChooser Test !!!");
 		
 		A.setLayout(new BorderLayout());
 		R1.setBackground(Color.red);
@@ -71,34 +71,14 @@ public class ColorSelector extends Frame implements AdjustmentListener{
 		add(colorS);
 		
 		setBounds(300, 200, 500, 500);
-		setVisible(true);
+	
 		
-		
-		
-		changeColor();
-		
-		
-	}
-	public static void main(String[] args) {
-		new ColorSelector();
-
 		
 		
 	}
 	
-	@Override
-	public void adjustmentValueChanged(AdjustmentEvent e) {
-		
-		changeColor();
-	}
 
-	private void changeColor() {
-		int r = Rr.getValue();
-		int g = Rr2.getValue();
-		int b = Rr3.getValue();
-		colorS.setBackground(new Color(r, g, b));
-		tf.setText("r = " + r + " g = " + g + " b = " + b);
-	}
+	
 	
 	
 

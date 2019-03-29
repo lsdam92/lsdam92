@@ -35,12 +35,14 @@ public class NumberBaseBall {
 	}
 
 	private void comRandom() {
+		com[0] = (int)(Math.random()*9+1);
 		do {
-			com[0] = (int) (Math.random() * 9 + 1);
-			com[1] = (int) (Math.random() * 10);
-			com[2] = (int) (Math.random() * 10);
-		} while (com[0] == com[1] || com[2] == com[0] || com[1] == com[2]);
-
+			com[1] = (int)(Math.random()*10);
+		}while (com[0] == com[1]);
+		do {
+			com[2] = (int)(Math.random()*10);
+		} while (com[2] == com[0] || com[1] == com[2]);
+	
 	}
 
 	private void game() {

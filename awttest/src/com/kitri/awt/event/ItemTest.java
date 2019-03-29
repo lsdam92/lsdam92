@@ -3,7 +3,7 @@ package com.kitri.awt.event;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ItemTest extends Frame implements ItemListener, ActionListener{
+public class ItemTest extends Frame{
 
 	Panel pN = new Panel();
 	Panel pS = new Panel();
@@ -22,6 +22,8 @@ public class ItemTest extends Frame implements ItemListener, ActionListener{
 
 	Choice ch = new Choice();
 	Button exit = new Button("Á¾·á");
+	
+	ItemLogic itemLogic;
 
 	public ItemTest() {
 		super("Item Test !!!");
@@ -57,15 +59,18 @@ public class ItemTest extends Frame implements ItemListener, ActionListener{
 		setBounds(300, 200, 300, 500);
 		setVisible(true);
 		
-		exit.addActionListener(this);
+		
+		itemLogic = new ItemLogic(this);
+		
+		exit.addActionListener(itemLogic);
 
-		mor.addItemListener(this);
-		aft.addItemListener(this);
-		eve.addItemListener(this);
-		app.addItemListener(this);
-		bana.addItemListener(this);
-		bery.addItemListener(this);
-		ch.addItemListener(this);
+		mor.addItemListener(itemLogic);
+		aft.addItemListener(itemLogic);
+		eve.addItemListener(itemLogic);
+		app.addItemListener(itemLogic);
+		bana.addItemListener(itemLogic);
+		bery.addItemListener(itemLogic);
+		ch.addItemListener(itemLogic);
 		
 	}
 
@@ -75,41 +80,10 @@ public class ItemTest extends Frame implements ItemListener, ActionListener{
 
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		System.exit(0);
-		
-	}
-
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		Object ob = e.getSource();
-		if(ob == ch) {
-			String str = ch.getSelectedItem();
-			if(str.equals("¾ÆÄ§")){
-				mor.setState(true);
-			}else if(str.equals("Á¡½É")) {
-				aft.setState(true);
-			}else {
-				eve.setState(true);
-			}
-		}
-		Checkbox sel = cg.getSelectedCheckbox();
-		String selStr = sel.getLabel();
-//		System.out.println(selStr);
-		ta.setText("--- " + selStr + " ---\n");
-//		ta.append("1. »ç°ú : " + (app.getState() == true ? "¸Ô¾ú´Ù" : "¾È¸Ô¾ú´Ù") + "\n");
-//		ta.append("2. ¹Ù³ª³ª : "+ (bana.getState() == true ? "¸Ô¾ú´Ù" : "¾È¸Ô¾ú´Ù") + "\n");
-//		ta.append("3. µþ±â : " + (bery.getState() == true ? "¸Ô¾ú´Ù" : "¾È¸Ô¾ú´Ù")+ "\n");
-		ta.append("1. »ç°ú : " + eat(app.getState()) + "\n)");
-		ta.append("2. ¹Ù³ª³ª : "+ eat(bana.getState()) + "\n");
-		ta.append("3. µþ±â : " + eat(bery.getState())+ "\n");
-		ch.select(selStr);
 	
-	}
 	
-	private String eat(boolean flag) {
-		return flag? "¸Ô¾ú´Ù" : "¾È¸Ô¾ú´Ù";
-	}
+	
+	
+	
 
 }
