@@ -61,12 +61,15 @@ public class BaseBall extends Frame {
 		fontC.addActionListener(baseBallController);
 		tf.addActionListener(baseBallController);
 		
+		this.addWindowListener(baseBallController);
+		
 //		FontColorChooser창 이벤트목록
 		FontColorChooser.Rr.addAdjustmentListener(baseBallController);
 		FontColorChooser.Rr2.addAdjustmentListener(baseBallController);
 		FontColorChooser.Rr3.addAdjustmentListener(baseBallController);
 		
 		FontColorChooser.ok.addActionListener(baseBallController);
+		
 	}
 
 	public static void main(String[] args) {

@@ -17,52 +17,27 @@ public class CalculatorService {
 	
 	}
 
-	public void tf() {
+	
+	public void Field() {
 		String myNumStr = dd.tf.getText().trim();
 		dd.tf.setText("");
 		
+		if(isNumber(myNumStr)) {
+			dd.tf.setText(myNumStr);
+		}else {
+			return;
+		}
 	}
 
 	public void exit() {
 		System.exit(0);
 	}
 
-	public void button(int i) {
+	private boolean isNumber(String str) {
+		boolean flag = true;		
 		
-		String a = Integer.toString(i);
-		
-		calculatorController.calculator.tf.setText(a);
+		return flag;
 	}
-	public void clear() {
-		calculatorController.calculator.tf.setText(" ");
-		
-	}
-		
-	public void plus() {
-		
-		
-	}
-
-	public void ggob() {
-
-		
-	}
-
-	public void mius() {
-		
-		
-	}
-
-	public void result() {
-		
-		
-	}
-
-	public void nbbang() {
-		
-		
-	}
-
 	
 
 	

@@ -26,11 +26,10 @@ public class Calculator extends Frame {
 	CalculatorController calculatorController;
 	
 	Font f = new Font("±¼¸²", Font.BOLD, 20);
+	
 	int gameLength;
 	public Calculator() {
 		
-		
-
 		pN.setLayout(new BorderLayout(10, 20));
 		pN.add(tf, "Center");
 		pN.add(bN, "East");

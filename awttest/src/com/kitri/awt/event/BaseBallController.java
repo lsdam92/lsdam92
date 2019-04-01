@@ -2,9 +2,11 @@ package com.kitri.awt.event;
 
 import java.awt.event.*;
 
-public class BaseBallController implements ActionListener, AdjustmentListener {
+public class BaseBallController extends WindowAdapter implements ActionListener, AdjustmentListener {
 	
 	BaseBall baseBall;
+	
+
 	BaseBallService baseBallService;
 	
 	public BaseBallController(BaseBall baseBall) {
@@ -38,5 +40,13 @@ public class BaseBallController implements ActionListener, AdjustmentListener {
 		
 		baseBallService.changeColor();
 	}
+//	WindowAdapter를 상속받으면 한개이상을 override하면 가능하다
+//	WindowListener를 implements하면 모든 method를 override해야하므로
+//	한가지만 쓸수있는 WindowAdapter를 써서 한개이상의 method를 override만 하면된다
+	@Override  
+	public void windowClosing(WindowEvent e) {
+		baseBallService.exit();	
+		}
 
+	
 }
