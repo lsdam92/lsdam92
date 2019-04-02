@@ -14,7 +14,7 @@ public class TVProgram {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+
 		return title + " (" + broadcast + ")";
 	}
 

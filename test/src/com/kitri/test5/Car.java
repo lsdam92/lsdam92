@@ -19,7 +19,7 @@ public class Car {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+
 		return "[색상] " + color + " [생산수량] " + account; 
 	}
 
