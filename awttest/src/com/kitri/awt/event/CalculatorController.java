@@ -7,7 +7,7 @@ public class CalculatorController implements ActionListener {
 
 	Calculator calculator;
 	CalculatorService calculatorService;
-	
+
 	public CalculatorController(Calculator calculator) {
 		this.calculator = calculator;
 		calculatorService = new CalculatorService(this);
@@ -16,15 +16,13 @@ public class CalculatorController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
-		
-		
-	 if(ob == calculator.bS) {
-		 calculatorService.exit();
-		
-		}else if(ob == calculator.tf) {
-			calculatorService.Field();
+
+		if (ob == calculator.exit) {
+			calculatorService.exit();
+		} else {
+			calculatorService.calcM(ob);
+
 		}
+
 	}
-
-
 }
