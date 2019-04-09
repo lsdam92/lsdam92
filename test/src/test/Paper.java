@@ -41,14 +41,18 @@ public class Paper extends JFrame {
 	public Paper() {
 		super("쪽지보내기~~~");
 		JPanel p1 = new JPanel();
+		p1.setBounds(5, 5, 424, 36);
 		JPanel p15 = new JPanel();
 		JLabel from = new JLabel("From :");
 		JLabel from2 = new JLabel("from");
 		JPanel p16 = new JPanel();
 		JLabel to = new JLabel("T o :" );
 		JPanel p2 = new JPanel();
+		p2.setBounds(5, 20, 424, 214);
 		JTextArea letter = new JTextArea();
+		letter.setBounds(0, 21, 424, 193);
 		JPanel p3 = new JPanel();
+		p3.setBounds(5, 234, 424, 23);
 		JPanel p31 = new JPanel();
 		JButton send = new JButton("\uBCF4\uB0B4\uAE30");
 		JButton send2 = new JButton("\uCDE8 \uC18C");
@@ -61,10 +65,10 @@ public class Paper extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		contentPane.setBackground(Color.yellow);
-		contentPane.add(p1, BorderLayout.NORTH);
+		contentPane.setLayout(null);
+		contentPane.add(p1);
 		
 		p1.setLayout(new GridLayout(1, 2, 20, 20));
 		p1.add(p15);
@@ -90,16 +94,16 @@ public class Paper extends JFrame {
 		to2.setOpaque(true);
 		to2.setBackground(new Color(255, 102, 0));
 		
-		contentPane.add(p2, BorderLayout.CENTER);
+		contentPane.add(p2);
 		
 		p3.add(p32, "name_24726848341566");
-		p2.setLayout(new BorderLayout(20, 20));
-		p2.add(letter, BorderLayout.CENTER);
+		p2.setLayout(null);
+		p2.add(letter);
 		p3.setLayout(new CardLayout(0, 0));
 		p3.add(p31, "name_24723827392647");
 		
 		
-		contentPane.add(p3, BorderLayout.SOUTH);
+		contentPane.add(p3);
 		p31.add(new Label(""));
 		p31.add(send);
 		p31.add(send2);
