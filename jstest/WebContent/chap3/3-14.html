@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var empty_object = {};
+var member = {
+		"user-name" : "이소담",
+		"age" : 28,
+		"city" : "과천"
+};
+console.log(member.age);
+console.log(member["user-name"]);
+
+console.log(member["age"]);
+console.log(member.user-name);
+
+member.age = 30;
+member["city"] = "경기도";
+
+console.log(member.age);
+console.log(member["age"]);
+console.log(member["city"]);
+console.log(member.city);
+
+var x = member;
+x.city = "과천";
+x.age = 28;
+console.log(x.city);
+console.log(x.age);
+console.log(x["user-name"]);
+</script>
+</head>
+<body>
+
+</body>
+</html>

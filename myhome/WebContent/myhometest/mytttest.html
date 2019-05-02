@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+	overflow: scroll;
+}
+.container{
+	border: 3px solid;
+	width:300px;
+	height:800px;
+	float: left;
+	padding : 20px;
+	margin: 20px;
+}
+.parent1{
+	width:250px;
+	height:350px;
+	border: 3px solid;
+	background-color: lightgray;
+	margin-top: 20px;
+}
+.parent2{
+	width:250px;
+	height:350px;
+	border: 3px solid;
+	background-color: lightgray;
+	margin-top: 20px;
+}
+.son1{
+	width:100px;
+	height:100px;
+	background-color: skyblue;
+}
+.son2{
+	width:100px;
+	height:100px;
+	background-color: skyblue;
+	
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="parent1">
+			<div class="son2">
+			</div>
+		</div>
+		<div class="parent1">
+			<div class="son1">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="parent2">
+			<div class="son1">
+			</div>
+		</div>
+		<div class="parent2">
+			<div class="son2">
+			</div>
+		</div>
+	
+	</div>
+</body>
+</html>
