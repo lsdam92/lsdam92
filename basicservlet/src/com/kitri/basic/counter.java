@@ -16,6 +16,7 @@ public class counter extends HttpServlet {
 
 	int cnt;
 	int totallen;
+	
 	@Override
 	public void init() {
 		cnt =0;
