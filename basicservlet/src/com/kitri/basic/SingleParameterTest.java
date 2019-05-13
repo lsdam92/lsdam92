@@ -16,10 +16,10 @@ public class SingleParameterTest extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		1.data get
-		String name = request.getParameter("name");
 //		byte b[] = name.getBytes("iso-8859-1"); 한글이 깨질때 
 //		name = new String(b, "euc-kr");
 		
+		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		int age = Integer.parseInt(request.getParameter("age"));
 		

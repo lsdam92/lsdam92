@@ -1,0 +1,92 @@
+t{
+
+conn = ...;
+conn.setAutocommit(false
+
+delete detail
+delete 
+
+conn.commit();
+pstmt = con.pr...
+pstmt.e..
+}catch{
+conn.rollback
+}
+
+- MVC 패턴
+ 	- 싱글톤 패턴?
+
+membermvc(프로젝트 이름)
+	src
+		- com.kitri.admin.controller
+			AdminController.java (Servlet : /admin)
+		
+		- com.kitri.admin.model
+
+		- com.kitri.admin.model.dao
+			AdminDao.java (I)
+			AdminDaoImpl.java
+
+		- com.kitri.admin.model.service
+			AdminService.java (I)
+			AdminServiceImpl.java
+				
+		- com.kitri.member.controller
+			MemberController.java (Servlet : /user)
+		
+		- com.kitri.member.model
+			MemberDto.java
+			MemberDetailDto.java
+			ZipcodeDto.java
+
+		- com.kitri.member.model.dao
+			MemberDao.java (I)
+			MemberDaoImpl.java
+
+		- com.kitri.member.model.service
+			MemberService.java (I)
+			MemberServiceImpl.java
+
+		- com.kitri.util
+			DBConnection.java
+			DBClose.java
+			Encoder.java
+		
+	webContent
+		- js - member.js
+		- css - *.css
+		- img - *.jpg, png, gif
+		
+		- admin
+			- member
+				memberlist.jsp
+			
+		- user
+			- member
+				member.jsp
+				registerok.jsp
+				registerfail.jsp
+				idcheck.jsp
+				zipsearch.jsp
+				membermodify.jsp
+				
+			- login
+				login.jsp
+				loginok.jsp
+				loginfail.jsp
+				
+		index.jsp
+		
+* HttopSession % Cookie
+Cookie			:	client	txt	>>	String	//문자열로만 저장
+
+HttpSession 	:	server memory >> Object	//메모리에 저장되므로 Object
+
+오늘본 상품
+Cookie
+
+찜목록(위시리스트) : 그냥 맘에듬 로그아웃후 다시로그인해도 나오는것은 DB이용
+Session : 로그아웃후 삭제시키고싶으면 Dto생성 후 session에 넣음 
+
+장바구니 - 상세정보저장
+Session
