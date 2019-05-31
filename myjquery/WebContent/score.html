@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(function() {
+	$("form").submit(function() {
+		var data = $("form").serialize();
+		$.ajax({
+			url : 'score.jsp',
+			data : data,
+			success : function(result){
+				$("#divResult").html(result.trim());//id가 divResult인 요소를 보여주는 함수
+			}
+		});
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+<div>
+  <img src = "image/movie_image.jpg"
+  style="width:200px;">
+</div>
+<div>
+  <form>
+    <input type="radio" name="star" value="1">★☆☆☆☆<br>
+    <input type="radio" name="star" value="2">★★☆☆☆<br>
+    <input type="radio" name="star" value="3" checked>★★★☆☆<br>
+    <input type="radio" name="star" value="4">★★★★☆<br>
+    <input type="radio" name="star" value="5">★★★★★<br>
+    <button>별점추가</button>
+  </form>
+</div>
+<div id="divResult">
+</div>
+</body>
+</html>

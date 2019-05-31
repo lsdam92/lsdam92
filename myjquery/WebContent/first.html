@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>first.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function (){
+// window.addEventListener("load",function(){});
+	var $all = $("body>p");	//변수에 $를 준 이유는 제이쿼리라는 것을 그냥 알려주는것임. 안해도됨.
+	$all.click(function() {
+		$(this).hide();
+		// this앞에 $를 써야 제이쿼리용 객체로 바꿀 수 있음 그래야 제이쿼리 메소드를 쓸 수 있음.
+		// 돔트리의 객체를 나타내는 것은 프로퍼티임.
+		//p{background-color:값} background-color는 프로퍼티라고 불림.
+	});
+	
+});
+
+
+/*
+function f1() {
+	this.style.display='none';
+//	안보이게 하겠다.
+//	obj.style.display
+}
+*/
+
+/*
+var f1 = function() { // 함수가 넣어질 수 있음.
+	this.style.display='none';
+}
+*/
+
+/*
+
+window.addEventListener("load",function(){ // 랜더링이 dom트리를 완성되면 load하라는 뜻. 계속 감시하다가 완성되면 실행.
+	var all = document.querySelectorAll("body>p");
+	//document.querySelector("body>p");// 하위를 찾겠다.
+	//document.querySelector("p");// 한개만 찾겠다.
+	//document.querySelectorALL("p"); // 여러개를 찾겠다.
+		for (var i = 0; i < all.length; i++) {
+			var obj = all[i];
+			obj.addEventListener("click", f1);
+		}
+});
+
+*/
+
+</script>
+
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
+
+</body>
+</html>
