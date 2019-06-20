@@ -23,7 +23,7 @@ public class BasicServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String color = age <= 19 ? "red" : "steelblue";
+		String color = age <= 18 ? "red" : "steelblue";
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();

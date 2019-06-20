@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//var a;
+//console.log(typeof(a)); // a변수의 자료형
+//console.log(a+1);	// 자바는 초기화 안해서 에러뜸 html은 NaN
+
+//var a = 10;	// html은 덮어씀.
+//console.log(a);
+
+var b = function() {
+	var lv = 'hello';
+	gv = "global";
+	for (var i = 0; i < 10; i++) {
+		console.log(i+" , lv = " + lv + " , gv = " + gv);
+	}
+	console.log("in function lv = ", lv);
+	console.log("in function i = ", i);
+	console.log("in function gv = ", gv);
+}
+
+console.log("typeof b = "+typeof(b));
+console.log(b);
+b();
+//console.log("out function lv = " + lv); // lv is not defined
+console.log("out function gv = " + gv); // lv is not defined
+
+</script>
+
+<script type="text/javascript">
+
+/*
+window.addEventListener("load", function(){ // dom트리가 다 끝나고 나서 화면에 보여지니 4값이 찍힘. i가 다 돌아가고 i가 4인 상태인걸 불러오게됨.
+	
+	var arr =document.querySelectorAll("button");
+	
+	for (var i = 0; i < arr.length; i++) {
+		
+		var btObj = arr[i];
+		
+		btObj.addEventListener("click", function() {
+			alert(i+"번째 버튼이 클릭되었습니다."); // 4번째만 찍힘.
+		});
+	}
+	
+}); */
+
+window.addEventListener("load", function(){ // 이러한 작업을 보완하기 위해 j값을 따로 줌. 이름없는 함수에다가 j값 순번으로 따로 만듬.
+	
+	var arr =document.querySelectorAll("button");
+	
+	for (var i = 0; i < arr.length; i++) {
+		
+		var btObj = arr[i];
+		
+		
+		(
+		function (j) { // j의 값은??
+			btObj.addEventListener("click", function() {
+				alert(j+"번째 버튼이 클릭되었습니다.");
+				
+				var aObj = document.querySelector("input[name=a]");
+				var bObj = document.querySelector("input[name=b]");
+				var aNum = parseInt(aObj.value); // val은 jquery 함수임.
+				var bNum = parseInt(bObj.value);
+				
+				switch(j){
+				
+				case 0 :
+					alert(aNum+bNum);
+					break;
+				case 1 :
+					alert(aNum-bNum);
+					break;
+				case 2 :
+					alert(aNum*bNum);
+					break;
+				case 3 :
+					alert(aNum/bNum);
+					break;
+				
+				}
+				
+			});
+		}
+		)(i);
+		
+		
+		
+	}
+	
+});
+
+
+</script>
+
+</head>
+<body>
+<input type="text" name="a"><br>
+<input type="text" name="b"><br>
+<button>+</button>
+<button>-</button>
+<button>*</button>
+<button>/</button>
+
+</body>
+</html>

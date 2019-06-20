@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+// 밑에 이벤트처리를 제이쿼리로 바꾸기.
+$(document).ready(function (){
+	
+	//DOM트리에서 div>a객체 찾기
+	//var aObj = $("div>a") 도 됌. 차이점은 자바스크립트에서 제공해주는 메소드, 프로퍼티만 사용가능
+	var $aObj = $("div>a"); // 자바스크립트 형태로 변환해서 객체를 찾아온거임. 제이쿼리에서 제공하는 메소드와 프로퍼티까지 다 사용가능함.
+	//console.log($aObj);
+	//aObj객체에서 클릭 이벤트가 발생했을때 처리할 핸들러 작성하기
+	//할일 : "클릭되었습니다."메시지를 경고창(alert)에 띄우기.
+	//	: 배경색을 yellow로 변경.
+	$aObj.click(function () {
+		alert("클릭되었습니다.");
+		//this.style.backgroundColor = "yellow";
+		//스타일의 프로퍼티 이름과 값을 적어주면 됨.
+		$(this).css("background-color","yellow");
+		// 전파도 막고 기본 이벤트도 자동으로 막힘.
+		return false;
+	});
+	
+	// DOM트리에서 div객체 찾기
+	var $divObj = $("div");
+	//divObj객체에서 클릭 이벤트가 발생했을때
+	$divObj.click(function() {
+		// 할일 : 배경색을 gray로 변경
+		$(this).css("background-color", "gray");
+	});
+	
+});
+
+
+
+
+/*
+
+//window객체에서 load이벤트가 발생했을 때 처리할 핸들러 작성하기. - dom트리가 만들어질 때 까지 기다리라는 뜻
+window.addEventListener("load",function(){
+	//DOM트리에서 div>a객체 찾기
+	var aObj = document.querySelector("div>a");
+	
+	
+	aObj.addEventListener("click",function(event){
+	//할일 : "클릭되었습니다."메시지를 경고창(alert)에 띄우기.
+		alert("클릭되었습니다.");
+	//기본 이벤트 핸들러 막기. 누르면 구글 들어가는것 막기.
+		event.preventDefault();
+	//	: 배경색을 yellow로 변경. background-color로 안한 이유는 자바 스크립트는 쓸 수 없음.
+		this.style.backgroundColor = "yellow";
+	//	aObj.style.backgroundColor = "yellow";
+	
+	//	자식인 a가 클릭되었을때 부모의 div는 적용되지 않게 막는것. 이벤트의 전파를 막는것.
+	//	하위에서부터 전파가 시작됨.
+		event.stopPropagation();
+		
+	});
+	
+*/	
+
+	/*-------------------------------------------------------------------*/
+	
+/*
+
+	// DOM트리에서 div객체 찾기
+	var divObj = document.querySelector("div");
+	
+	//divObj객체에서 클릭 이벤트가 발생했을때
+	//할일 : 배경색을 gray로 변경
+	divObj.addEventListener("click",function(){
+		
+		this.style.backgroundColor = "gray";
+		
+	});
+	
+}); 
+
+*/
+
+</script>
+
+</head>
+<body>
+<div>
+	<h3>DIV1</h3>
+	<a href = "http://www.google.com">구글</a>
+</div>
+</body>
+</html>

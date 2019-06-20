@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+// $(function(){}); = $(document).ready();
+$(function(){
+	
+	var $formObj=$("form");
+	
+	$formObj.submit(function (){
+		
+		var $tObj = $("input[name=t]");
+		// $tObj.val().trim; = $tObj.val().trim();
+		var $tObjValue = $tObj.val().trim();
+		
+		if ($tObjValue.length == 0) {
+			alert("반드시 입력하세요.");
+			$tObj.focus();
+			return false;
+		}else {
+			alert("전송되었습니다.");
+			// .attr()은 요소(element)의 속성(attribute)의 값을 가져오거나 속성을 추가합니다.
+			$formObj.attr("action","http://www.naver.com");
+			// post방식으로 바꿀 수 있음.
+			$formObj.attr("method","post");
+		}
+		
+	});
+	
+});
+
+
+/*
+
+window.addEventListener("load", function() {
+	// dom트리 input객체 중 type속성값이 submit인 객체 찾기.
+	var submitObj = document.querySelector("input[type=submit]");
+	
+	// submitObj에서 클릭이벤트 핸들러 작성하기
+	// 할일 : 클릭되었습니다. 경고창 띄우기.
+	submitObj.addEventListener("click", function(){
+		alert("클릭되었습니다.");
+	});
+	
+	
+	// dom트리에서 form객체 찾기.
+	var formObj = document.querySelector("form");
+	
+	// formObj에서 submit이벤트 핸들러 작성하기
+	// 할일 : 전송되었습니다.
+	formObj.addEventListener("submit", function(event){
+		
+		// 비밀번호 틀렸을때 유효성 검사시 주로 사용함.
+		// event.preventDefault();
+		//input객체중 name속성이 t인 객체 찾기.
+		var tObj = document.querySelector("input[name=t]");
+		var tObjValue = tObj.value.trim();
+		
+		if (tObjValue.length == 0) {
+			alert("반드시 입력하세요");
+			tObj.focus();
+			event.preventDefault();
+			return false;
+		}else{
+			alert("전송되었습니다.");
+			formObj.action="http://www.naver.com";
+			// formObj.submit(); submit하면 안됌. 무한루프 걸림.
+		}
+	});
+});
+
+*/
+
+
+</script>
+
+</head>
+<body>
+
+<form action="http://www.google.com">
+	<input name = "t"><br>
+	<!-- 서버쪽으로 전송하려면 name속성이 있어야뎀.. -->
+	<input type="password" name="p"><br>
+	<!-- 체크박스는 기본 값이 on 되므로 value값이 설정되어 있어야뎀. -->
+	<input type="checkbox" name="c" value="1">ONE&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="c" value="2">TWO&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="c" value="3">THREE<br>
+	<!-- 설정된 value가 없을때에는 ONE,TWO,THREE가 value값이 됨. 하지만 넘길때 바이트 수가 많이지므로 지정해주는것도 좋음.-->
+	<select name="s">
+		<option value="1">ONE</option>
+		<option value="2">TWO</option>
+		<option>THREE</option>
+	</select>
+	<!-- 20,22번 라인은 일처리를함. 21,24번 라인은 일처리를 하지 않음. -->
+	<input type="submit" value="전송1">
+	<input type="button" value="버튼1">
+	<button>전송2</button>
+</form>
+<button>버튼2</button>
+
+</body>
+</html>
